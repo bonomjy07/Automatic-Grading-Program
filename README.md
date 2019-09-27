@@ -10,7 +10,8 @@ Want to see Document ?
 
 Screenshots
 ---------------------------------------------------------------------------------------------------------------------------------
-![good](https://user-images.githubusercontent.com/49272857/65775328-ed007280-e17a-11e9-9b4d-0595c732e811.png)
+![pic1](https://user-images.githubusercontent.com/49272857/65776186-8e3bf880-e17c-11e9-9531-760d3d2f0b9d.png)
+![pic2](https://user-images.githubusercontent.com/49272857/65776185-8e3bf880-e17c-11e9-9696-9fb3f15e9d7b.png)
 
 
 What student file do ?
