@@ -14,9 +14,12 @@ Screenshots
 ![pic2](https://user-images.githubusercontent.com/49272857/65776185-8e3bf880-e17c-11e9-9696-9fb3f15e9d7b.png)
 
 
-What student file do ?
+What student program does ?
 ---------------------------------------------------------------------------------------------------------------------------------
-
+1. Create hash file(student.hsh) by referecing student.dat that store some record.
+2. Print search length for certain records.
+3. Set deleted marker in hash file(student.hsh) for records to be removed.
+4. After deletion, Print search length for certain records.
 
 How it works
 ---------------------------------------------------------------------------------------------------------------------------------
