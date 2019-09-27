@@ -1,7 +1,10 @@
 # Automatic-Grading-Program
 Grade student's file automatically 
 
-Want to see Document ? Unzip html.zip.
+
+Want to see Document ?
+1. Unzip html.zip
+2. Run index.html
 
 
 Screenshots
