@@ -214,18 +214,17 @@ int main(void)
 		printf("------------------------------------------\n");
 		printf("## %s start! ##\n", student_list[i] -> d_name);
 		int score[NUM_OF_SECTOR] = {0}, sum = 0;
-		char cur_student_dir[64] = {0}, cur_student_id[ID_LENGTH + 1] = {0};
+		char cur_student_dir[BUFFER_SIZE] = {0}, cur_student_id[ID_LENGTH + 1] = {0};
 		char result_buf[BUFFER_SIZE] = {0};
 		char cp_cmm[BUFFER_SIZE] = {0};
-
 
 		// Get current student id
 		memcpy(cur_student_id, student_list[i] -> d_name, ID_LENGTH);
 
 		// Get current student directory
 		sprintf(cur_student_dir, "%s/%s", cwd, student_list[i] -> d_name);
-
 		sprintf(cp_cmm, "cp %s %s", "./answer/src/*", cur_student_dir);
+
 		system(cp_cmm);
 
 		// Go to student directory, Do grading
