@@ -99,7 +99,7 @@ void do_grading(int *score)
 	int status;
 
 	char *execv_argv[NUM_OF_SECTOR][3] = {
-		{NULL  , NULL    , NULL}, // {make, compile, NULL};
+		{NULL  , NULL    , NULL}, // NULL for compile sector.
 		{"make", "create", NULL},
 		{"make", "search", NULL},
 		{"make", "delete", NULL},
