@@ -1,7 +1,7 @@
 # Automatic-Grading-Program
 Grade student's file automatically 
 
-Documents by doxygen
+Documents made by doxygen
 ---------------------------------------------------------------------------------------------------------------------------------
 Want to see Document ?
 1. Unzip html.zip
@@ -16,6 +16,8 @@ Screenshots
 
 What student's program does ?
 ---------------------------------------------------------------------------------------------------------------------------------
+Main job is to create hash file("student.hsh") with progressive overflow using "studenet.dat" file that store records.
+
 1. Create hash file(student.hsh) by referecing student.dat that store some record.
 2. Print search length for certain records.
 3. Set deleted marker in hash file(student.hsh) for records to be removed.
@@ -23,7 +25,7 @@ What student's program does ?
 
 How it works
 ---------------------------------------------------------------------------------------------------------------------------------
-Purpose is to explore every students's directory and then Grading their score one by one.
+Purpose is to explore every students's directory and Grading their score one by one.
 
 Here is brief how grading program work.
 1. Compile & run answer/* files to get answer files.
