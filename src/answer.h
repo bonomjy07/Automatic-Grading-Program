@@ -3,8 +3,9 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-/** @file answer.h.
-    @brief Header file for answer.c
+/** 
+ * @file answer.h.
+ *  @brief Header file for answer.c
 */
 
 #define BUFFER_SIZE 1024  ///< Buffer size

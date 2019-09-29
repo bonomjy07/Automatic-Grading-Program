@@ -58,6 +58,7 @@ void init_answer(void)
 
 void compile_ans(void)
 {
+	system("cp src/* ./");
 	system("make clean");
 	system("make a.out");
 }
@@ -102,7 +103,7 @@ void set_create_ans(void)
 void set_search_ans(void)
 {
 	int fd;
-	char cmm[64] = {0};
+	char cmm[BUFFER_SIZE] = {0};
 
 	sprintf(cmm, "%s > %s", "make search", search_fname);
 	system(cmm);
@@ -162,7 +163,7 @@ void set_delete_ans(void)
 void set_rsearch_ans(void)
 {
 	int fd;
-	char cmm[64] = {0};
+	char cmm[BUFFER_SIZE] = {0};
 
 	sprintf(cmm, "%s > %s", "make rsearch", rsearch_fname);
 	system(cmm);

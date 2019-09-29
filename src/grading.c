@@ -2,8 +2,6 @@
 #include "test.h"
 #include "answer.h"
 
-/** branch test...  remove later...*/
-
 /** 
  * @file grading.c
  * @brief Grade each student's files one by one.
@@ -100,7 +98,8 @@ void do_grading(int *score)
 {
 	int status;
 
-	char *execv_argv[NUM_OF_SECTOR][3] = {
+	char *execv_argv[NUM_OF_SECTOR][3] = 
+	{
 		{NULL  , NULL    , NULL}, // NULL for compile sector.
 		{"make", "create", NULL},
 		{"make", "search", NULL},
@@ -108,16 +107,17 @@ void do_grading(int *score)
 		{"make", "rsearch", NULL}
 	}; 
 
+	// Delete unnecessary files for grading
 	system("make clean");
 
-	// Don't test further if compile error happened.
+	// Don't test anymore if compile error raised.
 	if ((score[Compile] = test_ptr[Compile]()) == 0)
 	{
 		printf("Compile error.. No need to grade\n");
 		return ;
 	}
 
-	// Execute 
+	// Execute student's program
 	for (int i = 1; i < NUM_OF_SECTOR; i++)
 	{
 		int fd = -1; 
@@ -139,13 +139,13 @@ void do_grading(int *score)
 			if (fd == -1)  
 			{
 				close(1);
-				close(2);
 			}
 			// Need to save student's output for search, re-search.
 			else 
 			{
 				dup2(fd, 1);
 			}
+			close(2);
 
 			execv("/usr/bin/make", execv_argv[i]);
 			printf("never printed...:%d\n", i);
@@ -160,9 +160,7 @@ void do_grading(int *score)
 		
 
 		if (fd != -1) close(fd); // Close fd for output file.
-
-		if (finished[cur_pid] < 0)  continue; // Don't test if student was looping. No need
-
+		if (finished[cur_pid] < 0)  continue; // Don't test if student program was looping.
 		score[i] = test_ptr[i](); // Compare answer to student's result
 	}
 }
@@ -225,8 +223,9 @@ int main(void)
 
 		// Get current student directory
 		sprintf(cur_student_dir, "%s/%s", cwd, student_list[i] -> d_name);
-		sprintf(cp_cmm, "cp %s %s", "./answer/src/*", cur_student_dir);
 
+		// Copy files for grading students
+		sprintf(cp_cmm, "cp %s %s", "./answer/src/*", cur_student_dir);
 		system(cp_cmm);
 
 		// Go to student directory, Do grading
@@ -238,8 +237,7 @@ int main(void)
 		for (int j = 0; j < NUM_OF_SECTOR; j++) sum += score[j];
 
 		// Write result to .csv
-		sprintf(result_buf, "%s %d %d %d %d %d %d\n", cur_student_id,
-				score[Compile], score[Create], score[Search], score[Delete], score[RSearch], sum);
+		sprintf(result_buf, "%s %d %d %d %d %d %d\n", cur_student_id, score[Compile], score[Create], score[Search], score[Delete], score[RSearch], sum);
 		write(csv_fd, result_buf, strlen(result_buf));
 
 		// Print result on console

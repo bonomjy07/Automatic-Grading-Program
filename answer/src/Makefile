@@ -7,12 +7,12 @@ a.out : student.c
 create:
 	./a.out -c 10
 
-# search records that don't exist in student.dat
+# search records 
 search:
-	./a.out -s 9999999936
+	./a.out -s 9999999936 # three non-exist records in hash file
 	./a.out -s 9999999939
 	./a.out -s 9999999930
-	./a.out -s 0000000046
+	./a.out -s 0000000046 # Nine exist records in hash file
 	./a.out -s 0000000033
 	./a.out -s 0000000034
 	./a.out -s 0000000084
@@ -22,7 +22,7 @@ search:
 	./a.out -s 0000000058
 	./a.out -s 0000000085
 
-# delete 
+# delete records
 delete:
 	./a.out -d 0000000034
 	./a.out -d 0000000085

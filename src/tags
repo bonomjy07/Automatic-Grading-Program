@@ -26,131 +26,29 @@ Compile	grading.c	/^enum {Compile = 0, Create, Search, Delete, RSearch} Sectors;
 Create	grading.c	/^enum {Compile = 0, Create, Search, Delete, RSearch} Sectors; $/;"	e	enum:__anon1	file:
 DEPEND	Makefile	/^DEPEND   = makedepend$/;"	m
 Delete	grading.c	/^enum {Compile = 0, Create, Search, Delete, RSearch} Sectors; $/;"	e	enum:__anon1	file:
-HASH_FILE_NAME	20142314/student.h	/^#define HASH_FILE_NAME /;"	d
-HASH_FILE_NAME	20142344_6/student.h	/^#define HASH_FILE_NAME /;"	d
-HASH_FILE_NAME	answer/20142344_6/student.h	/^#define HASH_FILE_NAME /;"	d
-HASH_FILE_NAME	answer/src/student.h	/^#define HASH_FILE_NAME /;"	d
-HASH_FILE_NAME	answer/student.h	/^#define HASH_FILE_NAME /;"	d
-HASH_RECORD_SIZE	20142314/student.h	/^#define HASH_RECORD_SIZE /;"	d
-HASH_RECORD_SIZE	20142344_6/student.h	/^#define HASH_RECORD_SIZE /;"	d
-HASH_RECORD_SIZE	answer/20142344_6/student.h	/^#define HASH_RECORD_SIZE /;"	d
-HASH_RECORD_SIZE	answer/src/student.h	/^#define HASH_RECORD_SIZE /;"	d
-HASH_RECORD_SIZE	answer/student.h	/^#define HASH_RECORD_SIZE /;"	d
 ID_LENGTH	grading.h	/^#define ID_LENGTH /;"	d
 LDFLAGS	Makefile	/^LDFLAGS  = -pthread$/;"	m
 LINK	Makefile	/^LINK     = gcc -g$/;"	m
 LINKOPTS	Makefile	/^LINKOPTS = -lm $/;"	m
 NUM_OF_SECTOR	grading.h	/^#define NUM_OF_SECTOR /;"	d
 OBJECTS	Makefile	/^OBJECTS = grading.o test.o answer.o color.o$/;"	m
-RECORD_FILE_NAME	20142314/student.h	/^#define RECORD_FILE_NAME /;"	d
-RECORD_FILE_NAME	20142344_6/student.h	/^#define RECORD_FILE_NAME /;"	d
-RECORD_FILE_NAME	answer/20142344_6/student.h	/^#define RECORD_FILE_NAME /;"	d
-RECORD_FILE_NAME	answer/src/student.h	/^#define RECORD_FILE_NAME /;"	d
-RECORD_FILE_NAME	answer/student.h	/^#define RECORD_FILE_NAME /;"	d
 RSearch	grading.c	/^enum {Compile = 0, Create, Search, Delete, RSearch} Sectors; $/;"	e	enum:__anon1	file:
-SID_FIELD_SIZE	20142314/student.h	/^#define SID_FIELD_SIZE	/;"	d
-SID_FIELD_SIZE	20142344_6/student.h	/^#define SID_FIELD_SIZE	/;"	d
-SID_FIELD_SIZE	answer/20142344_6/student.h	/^#define SID_FIELD_SIZE	/;"	d
-SID_FIELD_SIZE	answer/src/student.h	/^#define SID_FIELD_SIZE	/;"	d
-SID_FIELD_SIZE	answer/student.h	/^#define SID_FIELD_SIZE	/;"	d
 SOURCES	Makefile	/^SOURCES = grading.c test.c answer.c color.c$/;"	m
-STUDENT	20142314/student.h	/^} STUDENT;$/;"	t	typeref:struct:_Student
-STUDENT	20142344_6/student.h	/^} STUDENT;$/;"	t	typeref:struct:_Student
-STUDENT	answer/20142344_6/student.h	/^} STUDENT;$/;"	t	typeref:struct:_Student
-STUDENT	answer/src/student.h	/^} STUDENT;$/;"	t	typeref:struct:_Student
-STUDENT	answer/student.h	/^} STUDENT;$/;"	t	typeref:struct:_Student
-STUDENT_RECORD_SIZE	20142314/student.h	/^#define STUDENT_RECORD_SIZE /;"	d
-STUDENT_RECORD_SIZE	20142344_6/student.h	/^#define STUDENT_RECORD_SIZE /;"	d
-STUDENT_RECORD_SIZE	answer/20142344_6/student.h	/^#define STUDENT_RECORD_SIZE /;"	d
-STUDENT_RECORD_SIZE	answer/src/student.h	/^#define STUDENT_RECORD_SIZE /;"	d
-STUDENT_RECORD_SIZE	answer/student.h	/^#define STUDENT_RECORD_SIZE /;"	d
 Search	grading.c	/^enum {Compile = 0, Create, Search, Delete, RSearch} Sectors; $/;"	e	enum:__anon1	file:
 Sectors	grading.c	/^enum {Compile = 0, Create, Search, Delete, RSearch} Sectors; $/;"	v	typeref:enum:__anon1
 TARGET	Makefile	/^TARGET   = grading$/;"	m
-_STUDENT_H_	20142314/student.h	/^#define _STUDENT_H_$/;"	d
-_STUDENT_H_	20142344_6/student.h	/^#define _STUDENT_H_$/;"	d
-_STUDENT_H_	answer/20142344_6/student.h	/^#define _STUDENT_H_$/;"	d
-_STUDENT_H_	answer/src/student.h	/^#define _STUDENT_H_$/;"	d
-_STUDENT_H_	answer/student.h	/^#define _STUDENT_H_$/;"	d
-_Student	20142314/student.h	/^typedef struct _Student$/;"	s
-_Student	20142344_6/student.h	/^typedef struct _Student$/;"	s
-_Student	answer/20142344_6/student.h	/^typedef struct _Student$/;"	s
-_Student	answer/src/student.h	/^typedef struct _Student$/;"	s
-_Student	answer/student.h	/^typedef struct _Student$/;"	s
-addr	20142314/student.h	/^	char addr[31];	    \/\/주소$/;"	m	struct:_Student
-addr	20142344_6/student.h	/^	char addr[31];	    \/\/주소$/;"	m	struct:_Student
-addr	answer/20142344_6/student.h	/^	char addr[31];	    \/\/주소$/;"	m	struct:_Student
-addr	answer/src/student.h	/^	char addr[31];	    \/\/주소$/;"	m	struct:_Student
-addr	answer/student.h	/^	char addr[31];	    \/\/주소$/;"	m	struct:_Student
 compile_ans	answer.c	/^void compile_ans(void)$/;"	f
 cur_pid	grading.c	/^pid_t cur_pid; \/\/\/< Currrent running child process pid, which is student's executable files.$/;"	v
-delete	20142314/student.c	/^void delete (const char *sid)$/;"	f
-delete	20142344_6/student.c	/^void delete(const char *sid)$/;"	f
-delete	answer/20142344_6/student.c	/^void delete(const char *sid)$/;"	f
-delete	answer/student.c	/^void delete(const char *sid)$/;"	f
-dept	20142314/student.h	/^	char dept[20];		\/\/학과$/;"	m	struct:_Student
-dept	20142344_6/student.h	/^	char dept[20];		\/\/학과$/;"	m	struct:_Student
-dept	answer/20142344_6/student.h	/^	char dept[20];		\/\/학과$/;"	m	struct:_Student
-dept	answer/src/student.h	/^	char dept[20];		\/\/학과$/;"	m	struct:_Student
-dept	answer/student.h	/^	char dept[20];		\/\/학과$/;"	m	struct:_Student
 do_grading	grading.c	/^void do_grading(int *score)$/;"	f
-email	20142314/student.h	/^	char email[26];		\/\/이메일 주소$/;"	m	struct:_Student
-email	20142344_6/student.h	/^	char email[26];		\/\/이메일 주소$/;"	m	struct:_Student
-email	answer/20142344_6/student.h	/^	char email[26];		\/\/이메일 주소$/;"	m	struct:_Student
-email	answer/src/student.h	/^	char email[26];		\/\/이메일 주소$/;"	m	struct:_Student
-email	answer/student.h	/^	char email[26];		\/\/이메일 주소$/;"	m	struct:_Student
 filter	grading.c	/^int filter(const struct dirent *info)$/;"	f
 finished	grading.c	/^int finished[10000]; $/;"	v
 green	color.c	/^void green(char *s) $/;"	f
-hashFunction	20142314/student.c	/^int hashFunction(const char *sid, int n)$/;"	f
-hashFunction	20142344_6/student.c	/^int hashFunction(const char *sid, int n)$/;"	f
-hashFunction	answer/20142344_6/student.c	/^int hashFunction(const char *sid, int n)$/;"	f
-hashFunction	answer/student.c	/^int hashFunction(const char *sid, int n)$/;"	f
 hsh_fname	answer.c	/^const char *hsh_fname = "student.hsh";             \/\/\/< file name for file to create$/;"	v
-id	20142314/student.h	/^	char id[11];		\/\/학번$/;"	m	struct:_Student
-id	20142344_6/student.h	/^	char id[11];		\/\/학번$/;"	m	struct:_Student
-id	answer/20142344_6/student.h	/^	char id[11];		\/\/학번$/;"	m	struct:_Student
-id	answer/src/student.h	/^	char id[11];		\/\/학번$/;"	m	struct:_Student
-id	answer/student.h	/^	char id[11];		\/\/학번$/;"	m	struct:_Student
 init_answer	answer.c	/^void init_answer(void)$/;"	f
-main	20142314/student.c	/^int main(int argc, char *argv[])$/;"	f
-main	20142344_6/student.c	/^int main(int argc, char *argv[])$/;"	f
-main	answer/20142344_6/student.c	/^int main(int argc, char *argv[])$/;"	f
-main	answer/student.c	/^int main(int argc, char *argv[])$/;"	f
 main	grading.c	/^int main(void)$/;"	f
-makeHashfile	20142314/student.c	/^void makeHashfile(int n)$/;"	f
-makeHashfile	20142344_6/student.c	/^void makeHashfile(int n)$/;"	f
-makeHashfile	answer/20142344_6/student.c	/^void makeHashfile(int n)$/;"	f
-makeHashfile	answer/student.c	/^void makeHashfile(int n)$/;"	f
-name	20142314/student.h	/^	char name[21];		\/\/이름$/;"	m	struct:_Student
-name	20142344_6/student.h	/^	char name[21];		\/\/이름$/;"	m	struct:_Student
-name	answer/20142344_6/student.h	/^	char name[21];		\/\/이름$/;"	m	struct:_Student
-name	answer/src/student.h	/^	char name[21];		\/\/이름$/;"	m	struct:_Student
-name	answer/student.h	/^	char name[21];		\/\/이름$/;"	m	struct:_Student
-phone	20142314/student.h	/^    char phone[16];		\/\/전화번호$/;"	m	struct:_Student
-phone	20142344_6/student.h	/^    char phone[16];		\/\/전화번호$/;"	m	struct:_Student
-phone	answer/20142344_6/student.h	/^    char phone[16];		\/\/전화번호$/;"	m	struct:_Student
-phone	answer/src/student.h	/^    char phone[16];		\/\/전화번호$/;"	m	struct:_Student
-phone	answer/student.h	/^    char phone[16];		\/\/전화번호$/;"	m	struct:_Student
-pp	test.c	/^void pp(char *buf)$/;"	f
-printSearchResult	20142314/student.c	/^void printSearchResult(int rn, int sl)$/;"	f
-printSearchResult	20142344_6/student.c	/^void printSearchResult(int rn, int sl)$/;"	f
-printSearchResult	answer/20142344_6/student.c	/^void printSearchResult(int rn, int sl)$/;"	f
-printSearchResult	answer/student.c	/^void printSearchResult(int rn, int sl)$/;"	f
-readHashRec	20142314/student.c	/^void readHashRec(FILE *fp, char *recordbuf, int rn)$/;"	f
-readHashRec	20142344_6/student.c	/^void readHashRec(FILE *fp, char *recordbuf, int rn)$/;"	f
-readHashRec	answer/20142344_6/student.c	/^void readHashRec(FILE *fp, char *recordbuf, int rn)$/;"	f
-readHashRec	answer/student.c	/^void readHashRec(FILE *fp, char *recordbuf, int rn)$/;"	f
-readStudentRec	20142314/student.c	/^void readStudentRec(FILE *fp, char *recordbuf, int rn)$/;"	f
-readStudentRec	20142344_6/student.c	/^void readStudentRec(FILE *fp, char *recordbuf, int rn)$/;"	f
-readStudentRec	answer/20142344_6/student.c	/^void readStudentRec(FILE *fp, char *recordbuf, int rn)$/;"	f
-readStudentRec	answer/student.c	/^void readStudentRec(FILE *fp, char *recordbuf, int rn)$/;"	f
+print_file	test.c	/^void print_file(char *buf)$/;"	f
 red	color.c	/^void red(char *s) $/;"	f
 rsearch_fname	answer.c	/^const char *rsearch_fname = "rsearch_output.txt";  \/\/\/< file name for output result of re-search$/;"	v
-search	20142314/student.c	/^int search(const char *sid, int *rn)$/;"	f
-search	20142344_6/student.c	/^int search(const char *sid, int *rn)$/;"	f
-search	answer/20142344_6/student.c	/^int search(const char *sid, int *rn)$/;"	f
-search	answer/student.c	/^int search(const char *sid, int *rn)$/;"	f
 search_fname	answer.c	/^const char *search_fname = "search_output.txt";    \/\/\/< file name for output result of search$/;"	v
 set_create_ans	answer.c	/^void set_create_ans(void)$/;"	f
 set_delete_ans	answer.c	/^void set_delete_ans(void)$/;"	f
@@ -163,13 +61,4 @@ test_delete	test.c	/^int test_delete(void)$/;"	f
 test_ptr	grading.c	/^int (*test_ptr[])(void) = {test_compile, test_create, test_search, test_delete, test_rsearch}; \/\/\/< Function pointer for functions that compare answer to files student made.$/;"	v
 test_rsearch	test.c	/^int test_rsearch(void)$/;"	f
 test_search	test.c	/^int test_search(void) $/;"	f
-writeHashRec	20142314/student.c	/^void writeHashRec(FILE *fp, const char *recordbuf, int rn)$/;"	f
-writeHashRec	20142344_6/student.c	/^void writeHashRec(FILE *fp, const char *recordbuf, int rn)$/;"	f
-writeHashRec	answer/20142344_6/student.c	/^void writeHashRec(FILE *fp, const char *recordbuf, int rn)$/;"	f
-writeHashRec	answer/student.c	/^void writeHashRec(FILE *fp, const char *recordbuf, int rn)$/;"	f
-year	20142314/student.h	/^	char year[2];		\/\/학년$/;"	m	struct:_Student
-year	20142344_6/student.h	/^	char year[2];		\/\/학년$/;"	m	struct:_Student
-year	answer/20142344_6/student.h	/^	char year[2];		\/\/학년$/;"	m	struct:_Student
-year	answer/src/student.h	/^	char year[2];		\/\/학년$/;"	m	struct:_Student
-year	answer/student.h	/^	char year[2];		\/\/학년$/;"	m	struct:_Student
 yellow	color.c	/^void yellow(char *s) $/;"	f
