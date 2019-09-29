@@ -16,7 +16,8 @@ Screenshots
 
 What student's program does ?
 ---------------------------------------------------------------------------------------------------------------------------------
-Main job is to create hash file("student.hsh") with progressive overflow using "studenet.dat" file that store records.
+Main job is to create hash file("student.hsh") with progressive overflow using "studenet.dat" file that store records And
+Print search number for record.
 
 1. Create hash file(student.hsh) by referecing student.dat that store some record.
 2. Print search length for certain records.
