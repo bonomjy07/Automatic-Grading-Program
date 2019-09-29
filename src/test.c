@@ -4,7 +4,7 @@
 
 /**
  * @file test.c
- * @brief Collection of method to compare answer file to student file.
+ * @brief Collection of method to compare answer file with student file.
  * @details Methods compare answer file to student file and return score.
  * */
 
@@ -21,20 +21,6 @@ extern char Arsearch_output[BUFFER_SIZE];
 extern const char *hsh_fname;
 extern const char *search_fname;
 extern const char *rsearch_fname;
-
-void pp(char *buf)
-{
-	printf("-------------------------\n");
-	for (int i = 0; i < 4; i++)
-		printf("%2x ", buf[i]);
-	printf("\n");
-	for (int i = 4; i < 140; i++) {
-		printf("%2x ", buf[i]);
-		if (i % 10 - 3 == 0) 
-			printf("\n");
-	}
-	printf("\n");
-}
 
 /** 
  * @brief Test compile sector.
@@ -114,8 +100,7 @@ int test_create(void)
 	}
 	else
 	{
-		pp(create_content);
-		pp(Acreate_content);
+		print_file(create_content);	print_file(Acreate_content);
 		red("<File content is wrong..>\n");
 	}
 
@@ -149,20 +134,21 @@ int test_search(void)
 	{
 		fprintf(stderr, "open %s error\n", search_fname);
 		return 0;
-		//exit(1);
 	}
 
 	// Read test result file
 	search_size = read(fd, search_output, sizeof(search_output));
 
-	// Test 2-1 : search records that don't exist in student.dat
+	// No need to test anymore if student has wrong file size
 	if (search_size != Asearch_size)
 	{
 		red("<Search failed : output.txt size is diff\n");
+		printf("search ans :\n%zd\n", Asearch_size);
+		printf("search stu :\n%zd\n", search_size);
 		return 0;
 	}
 
-	//...
+	// Compare student'program result with answer
 	if (memcmp(search_output, Asearch_output, Asearch_size) == 0)
 	{
 		score = 20;
@@ -195,7 +181,7 @@ int test_search(void)
 int test_delete(void)
 {
 	int fd;
-	int delete_size;
+	ssize_t delete_size;
 	char delete_content[BUFFER_SIZE] = {0};
 	int score = 0;
 
@@ -215,6 +201,8 @@ int test_delete(void)
 	if (delete_size != Adelete_size) 
 	{
 		red("<Delete failed : file size is wrong..\n");
+		printf("delete ans :\n%zd\n", Adelete_size);
+		printf("delete stu :\n%zd\n", delete_size);
 		return 0;
 	}
 
@@ -226,7 +214,7 @@ int test_delete(void)
 	}
 	else
 	{
-		pp(delete_content); pp(Adelete_content);
+		print_file(delete_content); print_file(Adelete_content);
 		red("<Delete failed : file contents is wrong....>\n");
 	}
 
@@ -260,7 +248,6 @@ int test_rsearch(void)
 	{
 		fprintf(stderr, "open %s error\n", rsearch_fname);
 		return 0;
-		//exit(1);
 	}
 
 	rsearch_size = read(fd, rsearch_output, BUFFER_SIZE);

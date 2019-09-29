@@ -3,12 +3,15 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-/** @file answer.h.
-    @brief Header file for answer.c
+/** 
+ * @file answer.h.
+ *  @brief Header file for answer.c
 */
 
 #define BUFFER_SIZE 1024  ///< Buffer size
 
+void print_file(char *);
+void print_answer(void);
 void init_answer(void);
 void compile_ans(void);
 void set_create_ans(void);

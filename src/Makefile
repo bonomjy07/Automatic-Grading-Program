@@ -24,7 +24,7 @@ OBJECTS = grading.o test.o answer.o color.o
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(LINK) -o grading $(OBJECTS) $(LINKOPTS) $(LDFLAGS)
+	$(LINK) -o $(TARGET) $(OBJECTS) $(LINKOPTS) $(LDFLAGS)
 
 clean:
 	rm *.o
