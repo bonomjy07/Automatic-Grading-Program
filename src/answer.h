@@ -10,6 +10,8 @@
 
 #define BUFFER_SIZE 1024  ///< Buffer size
 
+void print_file(char *);
+void print_answer(void);
 void init_answer(void);
 void compile_ans(void);
 void set_create_ans(void);

@@ -2,6 +2,7 @@
 
 /** 
  * @file answer.c
+ * @brief Set up answer.
  * @details  Compile files in answer directory, Run exetable files, then \n
  * Read files(student.hsh, search_output, rsearch_output), 
  * Initiate answer variables.
@@ -21,6 +22,53 @@ char Arsearch_output[BUFFER_SIZE]; ///< Buffer for re-search-output answer
 const char *hsh_fname = "student.hsh";             ///< file name for file to create
 const char *search_fname = "search_output.txt";    ///< file name for output result of search
 const char *rsearch_fname = "rsearch_output.txt";  ///< file name for output result of re-search
+
+/**
+ * @brief Print file contents in hexa
+ * @param none
+ * @return void
+ */
+void print_file(char *buf)
+{
+	printf("-------------------------\n");
+	for (int i = 0; i < 4; i++)
+		printf("%2x ", buf[i]);
+	printf("\n");
+	
+	for (int i = 4; i < 140; i++) 
+	{
+		printf("%2x ", buf[i]);
+		if (i % 10 - 3 == 0) 
+			printf("\n");
+	}
+	printf("\n");
+}
+
+/**
+ * @brief Print answer...
+ * @param none
+ * @return void
+ * */
+
+void print_answer(void)
+{
+	printf("Answer for create_size  : %zd(\"%s\")\n", Acreate_size, hsh_fname);
+	printf("Answer for search_size  : %zd(\"%s\")\n", Asearch_size, search_fname);
+	printf("Answer for delete_size  : %zd(\"%s\")\n", Adelete_size, hsh_fname);
+	printf("Answer for rsearch_size : %zd(\"%s\")\n", Arsearch_size, rsearch_fname);
+
+	printf("---Answer for create contents(\"%s\"---\n", hsh_fname);
+	print_file(Acreate_content);
+
+	printf("---Answer for search output(\"%s\"---\n", Asearch_output);
+	printf("%s", Asearch_output);
+
+	printf("---Answer for delete contents(\"%s\"---\n", hsh_fname);
+	print_file(Adelete_content);
+
+	printf("---Answer for rsearch output(\"%s\"---\n", Arsearch_output);
+	printf("%s", Arsearch_output);
+}
 
 /** 
  * @brief Call method that initiate answer variables.
@@ -44,6 +92,8 @@ void init_answer(void)
 	set_rsearch_ans();
 
 	chdir("../");
+
+	print_answer();
 	printf("-------Initiate answer finished!-------\n");
 }
 

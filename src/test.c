@@ -4,7 +4,7 @@
 
 /**
  * @file test.c
- * @brief Collection of method to compare answer file to student file.
+ * @brief Collection of method to compare answer file with student file.
  * @details Methods compare answer file to student file and return score.
  * */
 
@@ -21,27 +21,6 @@ extern char Arsearch_output[BUFFER_SIZE];
 extern const char *hsh_fname;
 extern const char *search_fname;
 extern const char *rsearch_fname;
-
-/**
- * @brief Print file contents in hexa
- * @parem none
- * @return void
- */
-void print_file(char *buf)
-{
-	printf("-------------------------\n");
-	for (int i = 0; i < 4; i++)
-		printf("%2x ", buf[i]);
-	printf("\n");
-	
-	for (int i = 4; i < 140; i++) 
-	{
-		printf("%2x ", buf[i]);
-		if (i % 10 - 3 == 0) 
-			printf("\n");
-	}
-	printf("\n");
-}
 
 /** 
  * @brief Test compile sector.
@@ -164,6 +143,8 @@ int test_search(void)
 	if (search_size != Asearch_size)
 	{
 		red("<Search failed : output.txt size is diff\n");
+		printf("search ans :\n%zd\n", Asearch_size);
+		printf("search stu :\n%zd\n", search_size);
 		return 0;
 	}
 
@@ -200,7 +181,7 @@ int test_search(void)
 int test_delete(void)
 {
 	int fd;
-	int delete_size;
+	ssize_t delete_size;
 	char delete_content[BUFFER_SIZE] = {0};
 	int score = 0;
 
@@ -220,6 +201,8 @@ int test_delete(void)
 	if (delete_size != Adelete_size) 
 	{
 		red("<Delete failed : file size is wrong..\n");
+		printf("delete ans :\n%zd\n", Adelete_size);
+		printf("delete stu :\n%zd\n", delete_size);
 		return 0;
 	}
 
