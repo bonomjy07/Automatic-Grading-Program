@@ -21,7 +21,7 @@ Print search number for record.
 
 <img width="180" alt="해시데이트" src="https://user-images.githubusercontent.com/49272857/65853545-d7669500-e394-11e9-8f28-1a7aa9290215.png">  <img width="131" alt="해시함수" src="https://user-images.githubusercontent.com/49272857/65853579-ee0cec00-e394-11e9-9866-86aa6ff2f234.png">   <img width="228" alt="해시파일" src="https://user-images.githubusercontent.com/49272857/65853562-e1889380-e394-11e9-9b56-03bd4179b9c8.png">
 
-1. Create hash file(student.hsh) by referecing student.dat that store some record.
+1. Create hash file(student.hsh) by using student.dat that store some record.
 2. Print "adrress of record" in hash file and "search length" needed to find record in hash file.
 3. Set deleted marker in hash file(student.hsh) for records to be removed.
 4. After deletion, Do same thing as #2 (Print Print "adrress of record" in hash file and "search length" needed to find record in hash file).
