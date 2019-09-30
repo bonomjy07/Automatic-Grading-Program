@@ -33,7 +33,7 @@ Purpose is to explore every students's directory and Grading their score one by 
 Here is brief how grading program work.
 1. Compile & run answer/* files to get answer files.
 2. Change current working directory to student's directory.
-3. Compile and run student's file with Makefile.
+3. Compile and run student's file by using Makefile.
 4. Compare answer files with files student made.
 5. Write result to .csv file.
 6. Back to current working directory, then Go to #2 untill program explores all of students.
