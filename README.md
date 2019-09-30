@@ -34,12 +34,12 @@ How it works
 Purpose is to explore every students's directory and Grading their score one by one.
 
 Here is brief how grading program work.
-1. Compile & run answer/* files to get answer files.
+1. Compile "./answer/*" files and run program to get answer files.
 2. Change current working directory to student's directory.
-3. Compile and run student's file by using Makefile.
+3. Compile and run student's program by using Makefile.
 4. Compare answer files with files student made.
 5. Write result to .csv file.
-6. Back to current working directory, then Go to #2 untill program explores all of students.
+6. Back to current working directory, then Do as #2 untill program explores all of students.
 
 
 Usage
