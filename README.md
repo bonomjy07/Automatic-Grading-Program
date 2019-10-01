@@ -16,24 +16,30 @@ Screenshots
 
 What student's program does ?
 ---------------------------------------------------------------------------------------------------------------------------------
-Main job is to create hash file("student.hsh") with progressive overflow using "studenet.dat" file that store records.
+Main job is to create hash file("student.hsh") with progressive overflow using "studenet.dat" file that store records And
+Print search number for record.
 
-1. Create hash file(student.hsh) by referecing student.dat that store some record.
-2. Print search length for certain records.
+<img width="180" alt="해시데이트" src="https://user-images.githubusercontent.com/49272857/65853545-d7669500-e394-11e9-8f28-1a7aa9290215.png">  <img width="131" alt="해시함수" src="https://user-images.githubusercontent.com/49272857/65853579-ee0cec00-e394-11e9-9866-86aa6ff2f234.png">   <img width="228" alt="해시파일" src="https://user-images.githubusercontent.com/49272857/65853562-e1889380-e394-11e9-9b56-03bd4179b9c8.png">
+
+1. Create hash file(student.hsh) by using student.dat that store some record.
+2. Print "adrress of record" in hash file and "search length" needed to find record in hash file.
+<img width="428" alt="스크린샷 2019-09-30 오후 4 20 26" src="https://user-images.githubusercontent.com/49272857/65857283-7b087300-e39e-11e9-89e0-4c169eeaf6d8.png">
 3. Set deleted marker in hash file(student.hsh) for records to be removed.
-4. After deletion, Print search length for certain records.
+
+4. After deletion, Do same thing as #2.
+   (Print Print "adrress of record" in hash file and "search length" needed to find record in hash file).
 
 How it works
 ---------------------------------------------------------------------------------------------------------------------------------
 Purpose is to explore every students's directory and Grading their score one by one.
 
 Here is brief how grading program work.
-1. Compile & run answer/* files to get answer files.
+1. Compile "./answer/*" files and run program to get answer files.
 2. Change current working directory to student's directory.
-3. Compile and run student's file with Makefile.
+3. Compile and run student's program by using Makefile.
 4. Compare answer files with files student made.
 5. Write result to .csv file.
-6. Back to current working directory, then Go to #2 untill program explores all of students.
+6. Back to current working directory, then Do as #2 untill program explores all of students.
 
 
 Usage
