@@ -1,4 +1,5 @@
 
+
 # compile student.c
 a.out : student.c
 	gcc student.c
@@ -40,6 +41,7 @@ rsearch:
 	./a.out -s 0000000085
 
 clean:
-	rm a.out student.hsh
+	rm a.out 
+	rm student.hsh
 	rm search_output.txt
 	rm rsearch_output.txt
