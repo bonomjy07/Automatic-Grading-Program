@@ -69,7 +69,7 @@ int test_create(void)
 
 	yellow("#########Create Test Start!#########\n");
 
-	// Get create result : "student.hsh" file
+	// Get "student.hsh" file that student's program made
 	if ((fd = open(hsh_fname, O_RDONLY)) < 0)
 	{
 		fprintf(stderr, "open %s error\n", hsh_fname); 
@@ -129,7 +129,7 @@ int test_search(void)
 
 	yellow("#########Search Test Start!#########\n");
 
-	// Get test result file
+	// Get student's output file for sector search
 	if ((fd = open(search_fname, O_RDONLY)) < 0)
 	{
 		fprintf(stderr, "open %s error\n", search_fname);
@@ -187,7 +187,7 @@ int test_delete(void)
 
 	yellow("#########Delete Test Start!#########\n");
 
-	// Get test result file
+	// Get "student.hsh" file that student's program made
 	if ((fd = open("student.hsh", O_RDONLY)) < 0)
 	{
 		fprintf(stderr, "can't file student.hsh\n");
