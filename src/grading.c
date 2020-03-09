@@ -37,7 +37,7 @@ extern const char *rsearch_fname;
  */
 enum {Compile = 0, Create, Search, Delete, RSearch} Sectors; 
 
-int (*test_ptr[])(void) = {test_compile, test_create, test_search, test_delete, test_rsearch}; ///< Function pointer for functions that compare answer to files student made.
+int (*fptr_tester[])(void) = {test_compile, test_create, test_search, test_delete, test_rsearch}; ///< Function pointer for functions that compare answer to files student made.
 pid_t cur_pid; ///< Currrent running child process pid, which is student's executable files.
 
 /** 
@@ -98,6 +98,7 @@ void do_grading(int *score)
 {
 	int status;
 
+	// Commands that how student's program will be compiled
 	char *execv_argv[NUM_OF_SECTOR][3] = 
 	{
 		{NULL  , NULL    , NULL}, // NULL for compile sector.
@@ -110,24 +111,32 @@ void do_grading(int *score)
 	// Delete unnecessary files for grading
 	system("make clean");
 
-	// Don't test anymore if compile error raised.
-	if ((score[Compile] = test_ptr[Compile]()) == 0)
+	// Compiles all the student's files before execute his program
+	if ((score[Compile] = fptr_tester[Compile]()) == 0)
 	{
 		printf("Compile error.. No need to grade\n");
 		return ;
 	}
 
 	// Execute student's program
-	for (int i = 1; i < NUM_OF_SECTOR; i++)
+	for (int curr_sector = 1; curr_sector < NUM_OF_SECTOR; curr_sector++)
 	{
-		int fd = -1; 
+		// Student program's output file descriptor
+		int st_output_fd = -1;
 
-		// Store student output for searching, re-searching
-		if (i == Search)
-			fd = open(search_fname, O_RDWR | O_CREAT | O_TRUNC, 0644);
-		else if (i == RSearch)
-			fd = open(rsearch_fname, O_RDWR | O_CREAT | O_TRUNC , 0644);
+		// Create a file to save student's program output for sector Search, Re-Search
+		// These sector are to print proper search length for certain record in hash file
+		// The others sector are to write data in correct home address in hash file
+		if (curr_sector == Search)
+		{
+			st_output_fd = open(search_fname, O_RDWR | O_CREAT | O_TRUNC, 0644);
+		}
+		else if (curr_sector == RSearch)
+		{
+			st_output_fd = open(rsearch_fname, O_RDWR | O_CREAT | O_TRUNC, 0644);
+		}
 
+		// Create new process for executing student's process
 		if ((cur_pid = fork()) < 0)
 		{
 			fprintf(stderr, "fork() error\n");
@@ -136,36 +145,44 @@ void do_grading(int *score)
 		else if (cur_pid == 0)
 		{
 			// No need to display student's output when grading create, delete.
-			if (fd == -1)  
+			if (st_output_fd == -1)
 			{
-				close(1);
+				close(STDOUT_FILENO);
 			}
 			// Need to save student's output for search, re-search.
-			else 
+			else
 			{
-				dup2(fd, 1);
+				dup2(st_output_fd, stdout);
 			}
-			close(2);
+			close(STDERR_FILENO);
 
-			execv("/usr/bin/make", execv_argv[i]);
-			printf("never printed...:%d\n", i);
+			// Execute student's program
+			execv("/usr/bin/make", execv_argv[curr_sector]);
+			printf("never printed...:%d\n", curr_sector);
 			exit(1);
 		}
-		else 
+		// Wait for student's program, 
+		// finished[pid] will be negative if st's program was executing longer than 2 second
+		else
 		{
 			alarm(2); // Alarm to kill child-process if he's looping forever.
 			waitpid(cur_pid, &status, 0);
 			alarm(0); // Cancel previous alarm, just in case.
 		}
-		
 
-		if (fd != -1) close(fd); // Close fd for output file.
-		if (finished[cur_pid] < 0)  continue; // Don't test if student program was looping.
-		score[i] = test_ptr[i](); // Compare answer to student's result
+		// Don't Test if the program was longer than 2 second
+		if (finished[cur_pid] == 0)
+		{
+			// Compare the student's file that his program made to answer file
+			score[curr_sector] = fptr_tester[curr_sector](); 
+		}
+
+		// Close student's output file 
+		if (st_output_fd != -1) close(st_output_fd);
 	}
 }
 
-/** 
+/**
  * @brief Explore each student directory to grade one by one.
  * @details
  * Do Initiating stuff like, \n
@@ -174,33 +191,35 @@ void do_grading(int *score)
 
 int main(void)
 {
-	int csv_fd;
-	char cwd[PATH_MAX] = {0};
-	struct sigaction sig_act; 
-	struct dirent **student_list;
-	int student_cnt;
-
+	// Get current working directory
+	char cwd[PATH_MAX] = { 0 };
 	if (getcwd(cwd, PATH_MAX) == NULL)
 	{
 		fprintf(stderr, "getcwd() error\n");
 		exit(1);
 	}
 
+	// Create .csv file to write student's score
+	int csv_fd;
 	if ((csv_fd = open("Grading.csv", O_WRONLY | O_CREAT | O_TRUNC, 0644)) < 0)
 	{
 		fprintf(stderr, "open(%s) error\n", "Grading.csv");
 		exit(1);
 	}
 
+	// Register signal handler to catch looping student's program
+	struct sigaction sig_act;
 	sig_act.sa_flags = 0;
 	sig_act.sa_handler = signal_handler;
-
-	if (sigaction(SIGALRM, &sig_act, NULL) != 0) 
+	if (sigaction(SIGALRM, &sig_act, NULL) != 0)
 	{
 		fprintf(stderr, "sigaction() error\n");
 		exit(1);
 	}
 
+	// Get all student's directory
+	struct dirent** student_list;
+	int student_cnt;
 	if ((student_cnt = scandir(cwd, &student_list, filter, alphasort)) < 0)
 	{
 		fprintf(stderr, "scandir() error\n");
@@ -209,20 +228,21 @@ int main(void)
 
 	init_answer();
 
+	// Round each student's directory and grade his score
 	for (int i = 0; i < student_cnt; i++)
 	{
 		printf("------------------------------------------\n");
-		printf("## %s start! ##\n", student_list[i] -> d_name);
-		int score[NUM_OF_SECTOR] = {0}, sum = 0;
-		char cur_student_dir[BUFFER_SIZE] = {0}, cur_student_id[ID_LENGTH + 1] = {0};
-		char result_buf[BUFFER_SIZE] = {0};
-		char cp_cmm[BUFFER_SIZE] = {0};
+		printf("## %s start! ##\n", student_list[i]->d_name);
+		int score[NUM_OF_SECTOR] = { 0 }, sum = 0;
+		char cur_student_dir[BUFFER_SIZE] = { 0 }, cur_student_id[ID_LENGTH + 1] = { 0 };
+		char result_buf[BUFFER_SIZE] = { 0 };
+		char cp_cmm[BUFFER_SIZE] = { 0 };
 
 		// Get current student id
-		memcpy(cur_student_id, student_list[i] -> d_name, ID_LENGTH);
+		memcpy(cur_student_id, student_list[i]->d_name, ID_LENGTH);
 
 		// Get current student directory
-		sprintf(cur_student_dir, "%s/%s", cwd, student_list[i] -> d_name);
+		sprintf(cur_student_dir, "%s/%s", cwd, student_list[i]->d_name);
 
 		// Copy files for grading students
 		sprintf(cp_cmm, "cp %s %s", "./answer/src/*", cur_student_dir);
